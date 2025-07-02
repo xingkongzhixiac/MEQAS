@@ -3,9 +3,11 @@
 </script>
 
 <template>
-    <p>COPYRIGHT @ 2025 VRSWUST | 蜀ICP备15036386号</p>
+    <p class="copy">COPYRIGHT @ 2025 VRSWUST | 蜀ICP备15036386号</p>
 </template>
 
 <style scoped>
-
+.copy{
+  color: #ffffff;
+}
 </style>

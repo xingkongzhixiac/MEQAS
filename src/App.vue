@@ -10,8 +10,9 @@
 
 <style  lang="scss" scoped>
 .app{
-  height:100vh;
-  width:100vw;
-  //background-color: blue;
+  height:auto;
+  width: 100%;
 }
+
+
 </style>

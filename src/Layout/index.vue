@@ -2,11 +2,14 @@
 <div class="all">
 <!--  <div class="top">-->
     <top-panel/>
-  <div v-if="!breadcrumbStore.breadcrumbList" style="padding: 10px"><el-breadcrumb separator="/">
-    <el-breadcrumb-item v-for="item in breadcrumbStore.breadcrumbList" :key="item['name']" :to="{path: item['path']}" >{{item['name']}}</el-breadcrumb-item>
-  </el-breadcrumb></div>
-<!--  </div>-->
-   <div class="main"> <router-view /></div>
+    <div class="main-content">
+      <div v-if="!breadcrumbStore.breadcrumbList" style="padding: 10px"><el-breadcrumb separator="/">
+        <el-breadcrumb-item v-for="item in breadcrumbStore.breadcrumbList" :key="item['name']" :to="{path: item['path']}" >{{item['name']}}</el-breadcrumb-item>
+      </el-breadcrumb></div>
+      <!--  </div>-->
+      <div class="main"> <router-view /></div>
+
+    </div>
   <div class="bottom">
     <bottom-panel/>
   </div>
@@ -25,7 +28,7 @@ const breadcrumbStore = useBreadcrumbStore()
 
 <style scoped>
 .all{
-  height:100%;
+  height:100vh;
   width:100%;
   display: flex;
   flex-direction: column;
@@ -46,5 +49,8 @@ const breadcrumbStore = useBreadcrumbStore()
 }
 .main{
   height: 100%;
+}
+.main-content{
+  overflow-y: auto;
 }
 </style>
