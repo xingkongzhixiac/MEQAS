@@ -1,9 +1,12 @@
 <template>
 <div class="all">
-  <div class="top">
+<!--  <div class="top">-->
     <top-panel/>
-  </div>
-    <router-view/>
+  <div v-if="!breadcrumbStore.breadcrumbList" style="padding: 10px"><el-breadcrumb separator="/">
+    <el-breadcrumb-item v-for="item in breadcrumbStore.breadcrumbList" :key="item['name']" :to="{path: item['path']}" >{{item['name']}}</el-breadcrumb-item>
+  </el-breadcrumb></div>
+<!--  </div>-->
+   <div class="main"> <router-view /></div>
   <div class="bottom">
     <bottom-panel/>
   </div>
@@ -13,10 +16,11 @@
 <script setup lang="ts">
 
 
-
-
 import TopPanel from "@/Layout/component/TopPanel.vue";
 import BottomPanel from "@/Layout/component/BottomPanel.vue";
+import {useBreadcrumbStore} from "@/stores/breadcrumbStore.ts";
+const breadcrumbStore = useBreadcrumbStore()
+
 </script>
 
 <style scoped>
@@ -25,7 +29,6 @@ import BottomPanel from "@/Layout/component/BottomPanel.vue";
   width:100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .top{
   height:60px;
@@ -40,5 +43,8 @@ import BottomPanel from "@/Layout/component/BottomPanel.vue";
   padding: 0;
   text-align: center;
   line-height: 60px;
+}
+.main{
+  height: 100%;
 }
 </style>
