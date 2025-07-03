@@ -17,6 +17,7 @@
     "glyphicons": "^0.2.0",
     "jsx": "^0.9.89",
     "pinia": "^3.0.3",
+    "pinia-plugin-persistedstate": "^4.4.1",
     "sass": "^1.89.2",
     "vite-plugin-inspect": "^11.3.0",
     "vue": "^3.5.17",

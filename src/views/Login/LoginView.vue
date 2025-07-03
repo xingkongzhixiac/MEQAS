@@ -2,6 +2,9 @@
 import {onMounted, ref} from 'vue'
 import {ElForm, ElMessage} from 'element-plus'
 import router from "@/router";
+import {loginStore} from "@/stores/login/loginStore.ts";
+
+const userLoginStore = loginStore()
 
 const loginForm = ref({
   username: '',
@@ -42,6 +45,9 @@ const handLogin = () => {
       // 测试
       if (loginForm.value.username === 'test@test.com' && loginForm.value.password === '1234567') {
         ElMessage.success('登录成功！')
+
+        userLoginStore.login(loginForm.value.username)
+
         router.push('/')
       } else {
         ElMessage.error('用户名或密码错误')
